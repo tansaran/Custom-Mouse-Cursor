@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Mouse Cursor</title>
+<style>
+body {
+  background-color: transparent;
+  cursor: none;
+  height: 120vh;
+}
+
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.small {
+  width: 10px;
+  height: 10px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-width: 2px 0;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+</style>
+</head>
+<body>
+
+<div class="cursor small"></div>
+
+<script>
+const cursorSmall = document.querySelector('.small');
+
+const positionElement = (e) => {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+   
+  cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+}
+
+window.addEventListener('mousemove', positionElement);
+</script>
+
+</body>
+</html>
+
+
